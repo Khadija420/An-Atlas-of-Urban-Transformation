@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <title> Urban Development Atlas | Lahore </title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- Load Leaflet CSS -->
+    <link href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" rel="stylesheet">
+
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rubik" type="text/css" />
+    <!-- Load our styles -->
+    <link href="./styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="nav-bar">
+        <ul>
+            <li><a href="index.html">Map</a></li>
+            <li><a href="Resources.html">Resources</a></li>
+            <li><a href="howto.html">How to</a></li>
+            <li><a href="Issues.html">Issues</a></li>
+            <li><a href="Actors.html">Actors</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+    </div>
+
+    <div class="title-box" style="height: 686px;">
+
+        <a href="index.html">
+
+        </a>
+
+        <div class="page-title">
+
+            DOING IT YOURSELF
+        </div>
+
+        <div class="about-description">
+          
+            <div class="form">
+              <form
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSex4jgS_dOBc3fNN9Dd3Q6O8euQPKUTFTskxM7nliKYWf4aow/formResponse"
+                    method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                   <h2>
+                     Report an Incident about your Neighborhood
+                </h2>
+                    <div>
+                        <label for="name">Describe What Happened:</label><br>
+                        <input id="name" type="text" name="entry.1706964831"  stlye = "margin-left: 3px"/>
+                    </div>
+                    <div>
+                        <label for="project-name">Who is responsible for it?</label><br>
+                        <input id="project-name" type="text" name="entry.1756840299" />
+                    </div>
+                    <div>
+                        <label for="your-say">Impact on you and your surroundings:</label><br>
+                        <textarea id="your-say" name="entry.42636806"></textarea>
+                    </div>
+                <div>
+                        <label for="your-say">More Information/Links to Additional News</label><br>
+                        <textarea id="your-say" name="entry.1537902432"></textarea>
+                    </div>
+                
+                    <div>
+                        <label for="rating">Intensity/Urgency of Incidents</label>
+                        <select name="entry.318613927">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <input class="longitude-field" id="longitude" type="hidden" name="entry.766491418" />
+                    <input class="latitude-field" id="latitude" type="hidden" name="entry.1699078114" />
+
+                    <div>
+                        <p>
+                            Drop a point on the map below to report where the incident happened:
+                        </p>
+                    </div>
+
+
+                    <input type="submit" value="Submit" />
+                </form>
+<!--                 <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSex4jgS_dOBc3fNN9Dd3Q6O8euQPKUTFTskxM7nliKYWf4aow/viewform?embedded=true"
+                    width="640" height="435" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+                <div style="position: absolute; height: 100%" id="map"></div>
+            </div>
+            <h1>
+                HOW TO USE IT?
+            </h1>
+
+            <p class="description">
+                The map intends to become a visual tool containing in itself all the data about development projects,
+                aiding the knowledge of the inhabitants in the area and helping them add to it through incident
+                reporting. Most of these initiatives are already organizing online through Facebook, but very much in
+                silos, so this will synergize and scale up the connections.
+
+            </p>
+
+            <p class="description">
+                <strong> If you're a citizen and want to learn how to do-it-yourself</strong>
+            </p>
+            <p class="description">
+                Find out what’s happening around you, report land displacement and acquisition incidents and participate
+                in any events organized in your neighborhood, to give your feedback about impending and existing
+                infrastructure projects
+            </p>
+            <p class="description">
+                <strong>If you are a community or non profit organization </strong>
+            </p>
+            <p class="description">
+                If you can't find yourself on our page, then you should be here! Shoot us an email or report on the map so we can incorporate and connect you with other groups. See what other groups
+                have done and what are other strategies when it comes to collecting data, making existing data public and connecting with people and other organizations. Y.</p>
+            <p class="description">
+                <strong>If you are an urban professional or from the government</strong>
+            </p>
+            <p class="description">
+                Architects and urban planners, both in government and academia, have systematically ignored the informal
+                and self-organized dynamics of the city to inform land use plans and public policies. planned almost 60
+                years ago, today it is experienced in a different way, and the new dynamics, uses and activities must
+                also be recognized and included in urban planning. Use the strategies below to understand the new uses
+                and activities that many spaces have not previously prescribed, but which demonstrate the interest and
+                need of many residents. Use them to also understand what challenges groups face and how laws, policies
+                and urban instruments could facilitate these processes.</p>
+            <p class="description">
+                <strong>If you are an International Organization</strong>
+            </p>
+           The Citizen's narrative is your Primary lens to Lahore.  Visit our Map, archival section and resources tab to learn more about our city! 
+            <br>
+
+
+            <h1>Contribute to this repository to say something about your city</h1>
+
+            <script type="text/javascript">var submitted = false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted)  {window.location='https://circular-amethyst.glitch.me/thanks.html';}"></iframe>
+
+            <script>console.log(submitted);</script>
+
+
+
+
+            <!-- Load Leaflet and Carto libraries -->
+            <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+            <script src="https://libs.cartocdn.com/carto.js/v4.1.11/carto.min.js"></script>
+
+            <!-- Load our JavaScript -->
+<!--             <script src="./script.js"></script> -->
+            <script src="./map-form.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
